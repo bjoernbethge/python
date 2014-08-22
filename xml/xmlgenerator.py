@@ -12,9 +12,7 @@ class XMLGenerator(object):
 		
 	def sub (self, parent, element_name, *args):
 	
-		if ( args ): 
-		
-			print(args)
+		if(args): 
 	
 			return xml.SubElement(parent, element_name, args[0])
 			
