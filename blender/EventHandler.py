@@ -3,7 +3,7 @@ class EventHandler():
 	"""class EventHandler 
 	
 	"""
-	def __init__( self ):
+	def __init__(self):
 
 		self.keyboard = bge.logic.keyboard
 		self.mouse = bge.logic.mouse
@@ -13,7 +13,7 @@ class EventHandler():
 		if self.debug:
 			print("EventHandler started")
 	
-	def getStatus( self, status ):
+	def getStatus(self, status):
 	
 		if status == 1:
 			status = "activated"
@@ -24,11 +24,11 @@ class EventHandler():
 	
 		return status
 	
-	def getCharacter( self, event ):
+	def getCharacter(self, event):
 		
 		return self.events.EventToCharacter(event,0)
 	
-	def getString( self, event ):
+	def getString(self, event):
 		
 		return self.events.EventToString(event)
 	
@@ -40,11 +40,11 @@ class EventHandler():
 	
 		return self.keyboard.active_events.items()
 	
-	def handleKeyEvent( self, string_event, string_status, callback, args=[] ):
+	def handleKeyEvent(self, string_event, string_status, callback, args=[]):
 	
 		for event in self.keyEvents():
 
-			event_string = self.getString( event[0] )
+			event_string = self.getString(event[0])
 			
 			event_status = self.getStatus(event[1])
 			
@@ -52,7 +52,7 @@ class EventHandler():
 			
 					if self.debug:
 
-						print( event_string, event_status )
+						print(event_string, event_status)
 					
 					try:
 					
@@ -76,7 +76,7 @@ class EventHandler():
 			
 					if self.debug:
 
-						print( event_string, event_status )
+						print(event_string, event_status)
 					
 					try:
 					
@@ -94,7 +94,7 @@ class EventHandler():
 			
 			if self.getStatus(event[1]) == 'activated':
 				
-				self.handleEvents( event, key_char, callback, args )
+				self.handleEvents(event, key_char, callback, args)
 					
 	def onKeyPress(self, key_char, callback, args=[]):
 	
@@ -102,7 +102,7 @@ class EventHandler():
 			
 			if self.getStatus(event[1]) == 'active':
 			
-				self.handleEvents( event, key_char, callback, args )
+				self.handleEvents(event, key_char, callback, args)
 	
 	def onKeyRelease(self, key_char, callback, args=[]):
 	
@@ -110,11 +110,11 @@ class EventHandler():
 			
 			if self.getStatus(event[1]) == 'deactivated':
 			
-				self.handleEvents( event, key_char, callback, args )
+				self.handleEvents(event, key_char, callback, args)
 			
 	def handleEvents(self, event, key_char, callback, args=[]):
 	
-		event_char = self.getCharacter( event[0] )
+		event_char = self.getCharacter(event[0])
 				
 		if event_char == key_char:
 		
