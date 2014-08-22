@@ -1,6 +1,6 @@
 import bge as bge
 class EventHandler():
-	"""class EvenHandler 
+	"""class EventHandler 
 	
 	"""
 	def __init__( self ):
